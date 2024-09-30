@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YTqWDC/Gipc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\1835756\\Documents\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Dev\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
