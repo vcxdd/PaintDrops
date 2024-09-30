@@ -1,0 +1,12 @@
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\bin\Debug\net6.0\ShapeLibrary.deps.json
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\bin\Debug\net6.0\ShapeLibrary.dll
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\bin\Debug\net6.0\ShapeLibrary.pdb
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.csproj.AssemblyReference.cache
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.AssemblyInfoInputs.cache
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.AssemblyInfo.cs
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.csproj.CoreCompileInputs.cache
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.dll
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\refint\ShapeLibrary.dll
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ShapeLibrary.pdb
+C:\Users\1835756\Documents\paintdrops\ShapeLibrary\obj\Debug\net6.0\ref\ShapeLibrary.dll
