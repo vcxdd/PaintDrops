@@ -443,7 +443,7 @@ $RECYCLE.BIN/
 *.sln.iml
 
 # Visual Studio 2015/2017 cache/options directory
-.vs
+.vs/
 
 ##
 ## Visual Studio Code
@@ -454,8 +454,8 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-**/obj/*
-**/bin/*
+**/obj/
+**/bin/
 
 ##
 ## Publish
