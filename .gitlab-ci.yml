@@ -13,8 +13,8 @@ build-release:
       - PaintDrops/
       
   script:
-  - dotnet publish -c Release -r win-x64 --self-contained true -o ./PaintDrops
-  - tar -cvf PaintDrops.tar ./PaintDrops/*
+  - dotnet publish -c Release -r win-x64 --self-contained true -o ./PaintDropsArtifact
+  - tar -cvf PaintDrops.tar ./PaintDropsArtifact/*
 
 Test:
   stage: test
