@@ -10,7 +10,7 @@ build-release:
   stage: build
   artifacts:
     paths:
-      - PaintDrops/
+      - Game.tar
       
   script:
   - dotnet publish -c Release -r win-x64 --self-contained true -o ./PaintDropsArtifact
@@ -19,7 +19,7 @@ build-release:
 Test:
   stage: test
   script:
-    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+    - dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"
   artifacts:
     when: always
     paths:
