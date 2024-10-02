@@ -79,10 +79,8 @@ public class VectorTests
     public void ToStringTest()
     {
         Vector v = new Vector(15, 7);
-        Vector n = Vector.Normalize(v);
-        float tolerance = 0.000001f;
+        String s = v.ToString();
 
-        Assert.AreEqual(0.906183, n.X, tolerance);
-        Assert.AreEqual(0.422885, n.Y, tolerance);
+        Assert.AreEqual("(15,7)", s);
     }
 }
