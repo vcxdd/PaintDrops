@@ -1,4 +1,5 @@
-image: mcr.microsoft.com/dotnet/sdk:6.0
+default:
+  image: mcr.microsoft.com/dotnet/sdk:6.0
 
 build-debug:
   stage: build
@@ -18,4 +19,11 @@ build-release:
 Test:
   stage: test
   script:
-  - dotnet test
+    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+  artifacts:
+    when: always
+    paths:
+      - ./**/*test-result.xml
+    reports:
+      junit:
+        - ./**/*test-result.xml

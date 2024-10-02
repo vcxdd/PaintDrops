@@ -69,6 +69,7 @@ namespace ShapeLibrary
         public static Vector operator /(Vector v, float scalar)
         {
             if (float.IsNaN(scalar)) throw new ArgumentException("NaN values not allowed");
+            if(scalar == 0) throw new ArgumentException("Cannot divide by 0");
 
             float x = v.X / scalar;
             float y = v.Y / scalar;
