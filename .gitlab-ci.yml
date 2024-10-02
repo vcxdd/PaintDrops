@@ -14,7 +14,7 @@ build-release:
       
   script:
   - dotnet publish -c Release -r win-x64 --self-contained true -o ./PaintDropsArtifact
-  - tar -cvf PaintDrops.tar ./PaintDropsArtifact/*
+  - tar -cvf Game.tar ./PaintDropsArtifact/*
 
 Test:
   stage: test
