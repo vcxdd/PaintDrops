@@ -42,6 +42,16 @@ public class VectorTests
     }
 
     [TestMethod]
+    [ExpectedException(typeof(ArgumentException), "NaN values not allowed")]
+    public void ScalarMultiplicationNaNExceptionTest()
+    {
+        Vector v = new Vector(5, 7);
+        float scalar = float.NaN;
+
+        Vector s = v * scalar;
+    }
+
+    [TestMethod]
     public void ScalarDivisionTest()
     {
         Vector v = new Vector(15, 7);
@@ -52,6 +62,26 @@ public class VectorTests
 
         Assert.AreEqual(5, s.X);
         Assert.AreEqual(2.33333, s.Y, tolerance);
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentException), "NaN values not allowed")]
+    public void ScalarDivisionNaNExceptionTest()
+    {
+        Vector v = new Vector(5, 7);
+        float scalar = float.NaN;
+
+        Vector s = v * scalar;
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentException), "Cannot divide by 0")]
+    public void ScalarDivisionZeroExceptionTest()
+    {
+        Vector v = new Vector(5, 7);
+        float scalar = 0;
+
+        Vector s = v / scalar;
     }
 
     [TestMethod]
