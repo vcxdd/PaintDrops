@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mKKaPS7/PBVGBQJ2pPSQqCow/V09NxS6GMJoSEM6PM8sYb3jG1eWlamN2YLvZcSKhlhQS4G14JS1tCwu7btmYQ==",
+  "dgSpecHash": "JAtpuCIldZPnnHjOkzegGOFcePY1O8kPS84dCxTG8d1isnfm1Gn14pbBd1/S2FTP0bGl1ai3gqeBgInK80bR7w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1835756\\Documents\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj",
+  "projectFilePath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Dev\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\Enymu\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

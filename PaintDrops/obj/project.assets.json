@@ -7582,19 +7582,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Dev\\.nuget\\packages": {}
+    "C:\\Users\\Enymu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1835756\\Documents\\paintdrops\\PaintDrops\\PaintDrops.csproj",
+      "projectUniqueName": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\PaintDrops\\PaintDrops.csproj",
       "projectName": "PaintDrops",
-      "projectPath": "C:\\Users\\1835756\\Documents\\paintdrops\\PaintDrops\\PaintDrops.csproj",
-      "packagesPath": "C:\\Dev\\.nuget\\packages",
-      "outputPath": "C:\\Users\\1835756\\Documents\\paintdrops\\PaintDrops\\obj\\",
+      "projectPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\PaintDrops\\PaintDrops.csproj",
+      "packagesPath": "C:\\Users\\Enymu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\PaintDrops\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\1835756\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Enymu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7608,11 +7608,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\1835756\\Documents\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj": {
-              "projectPath": "C:\\Users\\1835756\\Documents\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj"
+            "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj": {
+              "projectPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\DrawingLibrary\\DrawingLibrary.csproj"
             },
-            "C:\\Users\\1835756\\Documents\\paintdrops\\PaintDropSimulation\\PaintDropSimulation.csproj": {
-              "projectPath": "C:\\Users\\1835756\\Documents\\paintdrops\\PaintDropSimulation\\PaintDropSimulation.csproj"
+            "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\PaintDropSimulation\\PaintDropSimulation.csproj": {
+              "projectPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\PaintDropSimulation\\PaintDropSimulation.csproj"
             }
           }
         }
@@ -7660,7 +7660,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.422\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.425\\RuntimeIdentifierGraph.json"
       }
     }
   }

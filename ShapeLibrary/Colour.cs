@@ -33,8 +33,8 @@ public struct Colour
     public static Colour operator -(Colour a, Colour b)
     {
         int newRed = a.Red - b.Red;
-        int newBlue = a.Green - b.Green;
-        int newGreen = a.Blue - b.Blue;
+        int newGreen = a.Green - b.Green;
+        int newBlue = a.Blue - b.Blue;
 
         if (newRed < 0) newRed = 0;
         if (newGreen < 0) newGreen = 0;
@@ -46,8 +46,8 @@ public struct Colour
     public static Colour operator *(Colour c, int num)
     {
         int newRed = c.Red * num;
-        int newBlue = c.Green * num;
-        int newGreen = c.Blue * num;
+        int newGreen = c.Green * num;
+        int newBlue = c.Blue * num;
 
         if (newRed > 255) newRed = 255;
         if (newGreen > 255) newGreen = 255;
@@ -73,11 +73,11 @@ public struct Colour
 
     public static Boolean operator !=(Colour a, Colour b)
     {
-        return a != b;
+        return !(a == b);
     }
 
     public override String ToString()
     {
-        return $"RGB({this.Red}, {this.Green}, {this.Blue})";
+        return $"RGB({this.Red},{this.Green},{this.Blue})";
     }
 }

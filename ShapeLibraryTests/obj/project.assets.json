@@ -6352,19 +6352,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Dev\\.nuget\\packages": {}
+    "C:\\Users\\Enymu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1835756\\Documents\\paintdrops\\ShapeLibraryTests\\ShapeLibraryTests.csproj",
+      "projectUniqueName": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\ShapeLibraryTests\\ShapeLibraryTests.csproj",
       "projectName": "ShapeLibraryTests",
-      "projectPath": "C:\\Users\\1835756\\Documents\\paintdrops\\ShapeLibraryTests\\ShapeLibraryTests.csproj",
-      "packagesPath": "C:\\Dev\\.nuget\\packages",
-      "outputPath": "C:\\Users\\1835756\\Documents\\paintdrops\\ShapeLibraryTests\\obj\\",
+      "projectPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\ShapeLibraryTests\\ShapeLibraryTests.csproj",
+      "packagesPath": "C:\\Users\\Enymu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\ShapeLibraryTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\1835756\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Enymu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6378,8 +6378,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\1835756\\Documents\\paintdrops\\ShapeLibrary\\ShapeLibrary.csproj": {
-              "projectPath": "C:\\Users\\1835756\\Documents\\paintdrops\\ShapeLibrary\\ShapeLibrary.csproj"
+            "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\ShapeLibrary\\ShapeLibrary.csproj": {
+              "projectPath": "C:\\Users\\Enymu\\OneDrive\\Documents\\College\\ProgrammingV\\paintdrops\\ShapeLibrary\\ShapeLibrary.csproj"
             }
           }
         }
@@ -6432,7 +6432,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.422\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.425\\RuntimeIdentifierGraph.json"
       }
     }
   }
