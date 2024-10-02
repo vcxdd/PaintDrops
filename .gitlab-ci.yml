@@ -1,0 +1,22 @@
+default:
+  image: mcr.microsoft.com/dotnet/sdk:6.0
+
+build-debug:
+  stage: build
+  script:
+  - dotnet build -c Debug
+
+build-release:
+  stage: build
+  artifacts:
+    paths:
+      - PaintDrops/
+      
+  script:
+  - dotnet publish -c Release -r win-x64 --self-contained true -o ./PaintDropsArtifact
+  - tar -cvf PaintDrops.tar ./PaintDropsArtifact/*
+
+Test:
+  stage: test
+  script:
+  - dotnet test
