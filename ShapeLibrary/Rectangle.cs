@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShapeLibrary
 {
-    sealed class Rectangle : IRectangle
+    public class Rectangle : IRectangle
     {
         /// <summary>
         /// The x coord of the upper left corner of the rectangle
@@ -43,6 +43,7 @@ namespace ShapeLibrary
 
         public Rectangle(float x, float y, float width, float height, Colour color)
         {
+            if (x <= 0 || y <= 0 || width <= 0 || height <= 0) throw new ArgumentException("Values cannot be 0 or less.");
             this.X = x;
             this.Y = y;
             this.Width = width;
