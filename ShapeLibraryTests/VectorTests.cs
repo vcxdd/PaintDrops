@@ -30,10 +30,20 @@ public class VectorTests
     }
 
     [TestMethod]
-    public void ScalarMultiplicationTest()
+    public void ScalarFloatMultiplicationTest()
     {
         Vector v = new Vector(5, 7);
         float scalar = 3;
+
+        Vector s = v * scalar;
+
+        Assert.AreEqual(15, s.X);
+        Assert.AreEqual(21, s.Y);
+    }
+    public void ScalarIntMultiplicationTest()
+    {
+        Vector v = new Vector(5, 7);
+        int scalar = 3;
 
         Vector s = v * scalar;
 
@@ -52,10 +62,23 @@ public class VectorTests
     }
 
     [TestMethod]
-    public void ScalarDivisionTest()
+    public void ScalarFloatDivisionTest()
     {
         Vector v = new Vector(15, 7);
         float scalar = 3;
+        float tolerance = 0.00001f;
+
+        Vector s = v / scalar;
+
+        Assert.AreEqual(5, s.X);
+        Assert.AreEqual(2.33333, s.Y, tolerance);
+    }
+
+    [TestMethod]
+    public void ScalarIntDivisionTest()
+    {
+        Vector v = new Vector(15, 7);
+        int scalar = 3;
         float tolerance = 0.00001f;
 
         Vector s = v / scalar;
@@ -76,7 +99,7 @@ public class VectorTests
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentException), "Cannot divide by 0")]
-    public void ScalarDivisionZeroExceptionTest()
+    public void ScalarFloatDivisionZeroExceptionTest()
     {
         Vector v = new Vector(5, 7);
         float scalar = 0;

@@ -56,12 +56,33 @@ namespace ShapeLibrary
             return new Vector(x, y);
         }
 
+        public static Vector operator *(Vector v, int scalar)
+        {
+            float x = v.X * scalar;
+            float y = v.Y * scalar;
+
+            return new Vector(x, y);
+        }
+
         public static Vector operator *(Vector v, float scalar)
         {
             if (float.IsNaN(scalar)) throw new ArgumentException("NaN values not allowed");
 
             float x = v.X * scalar;
             float y = v.Y * scalar;
+
+            return new Vector(x, y);
+        }
+
+        public static Vector operator /(Vector v, int scalar)
+        {
+            if (scalar == 0)
+            {
+                throw new ArgumentException("Cannot divide by 0");
+            }
+
+            float x = v.X / scalar;
+            float y = v.Y / scalar;
 
             return new Vector(x, y);
         }

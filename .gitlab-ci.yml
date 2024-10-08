@@ -23,7 +23,7 @@ Test:
   artifacts:
     when: always
     paths:
-      - ./**/*test-result.xml
+      - ./artifacts/ShapeLibraryTests-test result.xml
     reports:
       junit:
-        - ./**/*test-result.xml
+        - ./artifacts/ShapeLibraryTests-test result.xml
