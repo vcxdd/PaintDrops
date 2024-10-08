@@ -462,3 +462,6 @@ $RECYCLE.BIN/
 ##
 
 PaintDropsArtifact/
+
+runOpenCover.bat
+coveragereport/
