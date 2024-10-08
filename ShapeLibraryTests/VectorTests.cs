@@ -99,7 +99,7 @@ public class VectorTests
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentException), "Cannot divide by 0")]
-    public void ScalarDivisionZeroExceptionTest()
+    public void ScalarFloatDivisionZeroExceptionTest()
     {
         Vector v = new Vector(5, 7);
         float scalar = 0;
