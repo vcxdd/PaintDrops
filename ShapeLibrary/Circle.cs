@@ -31,7 +31,6 @@ namespace ShapeLibrary
             {
                 float Xn = (float)(this.Center.X + this.Radius * Math.Cos(i * ((2 * Math.PI) / n)));
                 float Yn = (float)(this.Center.X + this.Radius * Math.Sin(i * ((2 * Math.PI) / n)));
-
                 Vertices[i] = new Vector(Xn, Yn);
             }
         }

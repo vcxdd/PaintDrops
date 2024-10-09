@@ -1,9 +1,11 @@
 ﻿using System;
+using DrawingLibrary.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ShapeLibrary;
 
 
-namespace DrawingLib.Graphics
+namespace DrawingLibrary.Graphics
 {
     public sealed class ShapesRenderer : IShapesRenderer
     {
