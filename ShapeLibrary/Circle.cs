@@ -20,7 +20,7 @@ namespace ShapeLibrary
 
         public Circle(float x, float y, float radius, Colour color)
         {
-            if (x < 0 || y < 0 || radius <= 0) throw new ArgumentException("Values cannot be 0 and/or less");
+            if (radius <= 0) throw new ArgumentException("Radius cannot be 0 or less");
 
             this.Center = new Vector(x, y);
             this.Radius = radius;

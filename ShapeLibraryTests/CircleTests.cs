@@ -7,14 +7,7 @@ namespace ShapeLibraryTests
     public class CircleTests
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Values cannot be 0 and/or less.")]
-        public void CircleCoordsTest()
-        {
-            Circle c = new Circle(-1, -1, 100, new Colour(0, 0, 255));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Values cannot be 0 and/or less.")]
+        [ExpectedException(typeof(ArgumentException), "Radius cannot be 0 or less.")]
         public void CircleRadiusTest()
         {
             Circle c = new Circle(50, 50, 0, new Colour(0, 0, 255));
@@ -38,6 +31,9 @@ namespace ShapeLibraryTests
             Assert.AreEqual(16, c.Vertices[0].Y);
             Assert.AreEqual(107.803, c.Vertices[1].X, tolerance);
             Assert.AreEqual(22.279, c.Vertices[1].Y, tolerance);
+            Assert.AreEqual(-92, c.Vertices[50].X, tolerance);
+            Assert.AreEqual(16, c.Vertices[50].Y, tolerance);
+
         }
     }
 }
