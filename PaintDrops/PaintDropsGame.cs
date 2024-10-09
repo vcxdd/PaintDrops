@@ -78,7 +78,7 @@ namespace PaintDrops
                 if (pos.HasValue)
                 {
                     Colour color = new Colour(255, 153, 153);
-                    _shapes.Add(ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 128, color));
+                    _shapes.Add(ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 64, color));
                 }
             }
             if (_mouse.IsRightButtonClicked())
