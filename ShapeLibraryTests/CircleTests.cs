@@ -7,6 +7,20 @@ namespace ShapeLibraryTests
     public class CircleTests
     {
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Values cannot be 0 and/or less.")]
+        public void CircleCoordsTest()
+        {
+            Circle c = new Circle(-1, -1, 100, new Colour(0, 0, 255));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Values cannot be 0 and/or less.")]
+        public void CircleRadiusTest()
+        {
+            Circle c = new Circle(50, 50, 0, new Colour(0, 0, 255));
+        }
+
+        [TestMethod]
         public void VerticesLengthTest()
         {
             Circle c = new Circle(8, 16, 100, new Colour(0, 0, 255));
