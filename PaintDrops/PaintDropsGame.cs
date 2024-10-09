@@ -17,7 +17,7 @@ namespace PaintDrops
         private IScreen screen;
         private CustomKeyboard _keyboard;
         private CustomMouse _mouse;
-        private Color _backgroundColor = Color.CornflowerBlue;
+        private Color _backgroundColor = Color.White;
         private ISpritesRenderer _spritesRenderer;
         private IShapesRenderer _shapesRenderer;
 
@@ -51,16 +51,12 @@ namespace PaintDrops
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -68,28 +64,40 @@ namespace PaintDrops
             _keyboard.Update();
             _mouse.Update();
             screen.CalculateDestinationRectangle();
+            
             if (_keyboard.IsKeyDown(Keys.Escape))
             {
                 Exit();
             }
+
             if (_mouse.IsLeftButtonClicked())
             {
                 Vector2? pos = _mouse.GetScreenPosition(screen);
                 if (pos.HasValue)
                 {
-                    Colour color = new Colour(255, 153, 153);
+                    Random random = new Random();
+                    int red = random.Next(0, 255);
+                    int green = random.Next(0, 255);
+                    int blue = random.Next(0, 255);
+                    Colour color = new Colour(red, green, blue);
                     _shapes.Add(ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 64, color));
                 }
             }
+
             if (_mouse.IsRightButtonClicked())
             {
                 Vector2? pos = _mouse.GetScreenPosition(screen);
                 if (pos.HasValue)
                 {
-                    Colour color = new Colour(255, 153, 153);
+                    Random random = new Random();
+                    int red = random.Next(0, 255);
+                    int green = random.Next(0, 255);
+                    int blue = random.Next(0, 255);
+                    Colour color = new Colour(red, green, blue);
                     _shapes.Add(ShapesFactory.CreateRectangle(pos.Value.X, pos.Value.Y, 128, 128, color));
                 }
             }
+
             if (_mouse.IsMiddleButtonClicked())
             {
                 _shapes.Clear();
