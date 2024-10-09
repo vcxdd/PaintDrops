@@ -1,9 +1,12 @@
 ﻿namespace ShapeLibrary;
 public struct Colour
 {
-    public int Red { get; }
-    public int Green { get; }
-    public int Blue { get; }
+    private int _red;
+    private int _green;
+    private int _blue;
+    public int Red => _red;
+    public int Green => _green;
+    public int Blue => _blue;
 
     public Colour(int red, int green, int blue)
     {
@@ -12,16 +15,16 @@ public struct Colour
             throw new ArgumentException("RBG values must be between 0 and 255");
         }
 
-        this.Red = red;
-        this.Green = green;
-        this.Blue = blue;
+        this._red = red;
+        this._green = green;
+        this._blue = blue;
     }
 
     public static Colour operator +(Colour a, Colour b) 
     {
-        int newRed = a.Red + b.Red;
-        int newGreen = a.Green + b.Green;
-        int newBlue = a.Blue + b.Blue;
+        int newRed = a._red + b._red;
+        int newGreen = a._green + b._green;
+        int newBlue = a._blue + b._blue;
 
         if (newRed > 255) newRed = 255;
         if (newGreen > 255) newGreen = 255;
@@ -32,9 +35,9 @@ public struct Colour
 
     public static Colour operator -(Colour a, Colour b)
     {
-        int newRed = a.Red - b.Red;
-        int newGreen = a.Green - b.Green;
-        int newBlue = a.Blue - b.Blue;
+        int newRed = a._red - b._red;
+        int newGreen = a._green - b._green;
+        int newBlue = a._blue - b._blue;
 
         if (newRed < 0) newRed = 0;
         if (newGreen < 0) newGreen = 0;
@@ -45,9 +48,9 @@ public struct Colour
 
     public static Colour operator *(Colour c, int num)
     {
-        int newRed = c.Red * num;
-        int newGreen = c.Green * num;
-        int newBlue = c.Blue * num;
+        int newRed = c._red * num;
+        int newGreen = c._green * num;
+        int newBlue = c._blue * num;
 
         if (newRed > 255) newRed = 255;
         if (newGreen > 255) newGreen = 255;
@@ -66,7 +69,7 @@ public struct Colour
 
     public static Boolean operator ==(Colour a, Colour b)
     {
-        if (a.Red == b.Red && a.Green == b.Green && a.Blue == b.Blue) return true;
+        if (a._red == b._red && a._green == b._green && a._blue == b._blue) return true;
 
         return false;
     }
@@ -78,6 +81,6 @@ public struct Colour
 
     public override String ToString()
     {
-        return $"RGB({this.Red},{this.Green},{this.Blue})";
+        return $"RGB({this._red},{this._green},{this._blue})";
     }
 }

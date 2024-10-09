@@ -18,7 +18,7 @@ namespace ShapeLibraryTests
         {
             Circle c = new Circle(8, 16, 100, new Colour(0, 0, 255));
 
-            Assert.AreEqual(100, c.Vertices.Length);
+            Assert.AreEqual(100, c.NumVertices);
         }
 
         [TestMethod]
