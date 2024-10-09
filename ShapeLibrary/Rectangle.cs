@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShapeLibrary
 {
-    public class Rectangle : IRectangle
+    internal class Rectangle : IRectangle
     {
         /// <summary>
         /// The x coord of the upper left corner of the rectangle

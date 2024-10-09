@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShapeLibrary
 {
-    public class Circle : ICircle
+    internal class Circle : ICircle
     {
         public float Radius { get; }
 
