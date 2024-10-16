@@ -22,8 +22,7 @@ namespace ShapeLibrary
         private Colour _colour;
         public Colour Colour => _colour;
 
-        private const int _numVertices = 100;
-        public int NumVertices => _numVertices;
+        private const int _numVertices = 1024;
 
         public Circle(float x, float y, float radius, Colour color)
         {

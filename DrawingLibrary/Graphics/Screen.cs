@@ -46,6 +46,7 @@ namespace DrawingLibrary.Graphics
                 throw new ArgumentNullException("spritesRenderer is null");
             }
 
+            CalculateDestinationRectangle();
             spritesRenderer.Begin(textureFiltering);
             spritesRenderer.Draw(_target, _rectangle, Color.White);   
             spritesRenderer.End();
