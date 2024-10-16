@@ -8,7 +8,7 @@ namespace ShapeLibraryTests
         [TestMethod]
         public void VerticesTest()
         {
-            IRectangle rectangle = new Rectangle(50, 50, 100, 100, new Colour(0, 0, 255));
+            IRectangle rectangle = ShapesFactory.CreateRectangle(50, 50, 100, 100, new Colour(0, 0, 255));
 
             Assert.AreEqual(50, rectangle.Vertices[0].X);
             Assert.AreEqual(50, rectangle.Vertices[0].Y);
@@ -24,7 +24,7 @@ namespace ShapeLibraryTests
         [ExpectedException(typeof(ArgumentException), "Values cannot be 0 or less.")]
         public void VerticesException()
         {
-            IRectangle rectangle = new Rectangle(-1, 0, -100, -50, new Colour(0, 0, 255));
+            IRectangle rectangle = ShapesFactory.CreateRectangle(-1, 0, -100, -50, new Colour(0, 0, 255));
         }
     }
 }
