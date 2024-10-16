@@ -10,28 +10,24 @@ namespace ShapeLibrary
 {
     internal class Circle : ICircle
     {
-        private float _radius;
-        public float Radius => _radius;
+        public float Radius { get;  }
 
-        private Vector _center;
-        public Vector Center => _center;
+        public Vector Center { get; }
 
-        private Vector[] _vertices;
-        public Vector[] Vertices => _vertices;
+        public Vector[] Vertices { get; }
 
-        private Colour _colour;
-        public Colour Colour => _colour;
+        public Colour Colour { get; }
 
-        private const int _numVertices = 1024;
+        public const int _numVertices = 1024;
 
         public Circle(float x, float y, float radius, Colour color)
         {
             if (radius <= 0) throw new ArgumentException("Radius cannot be 0 or less");
 
-            this._center = new Vector(x, y);
-            this._radius = radius;
-            this._colour = color;
-            this._vertices = new Vector[_numVertices];
+            this.Center = new Vector(x, y);
+            this.Radius = radius;
+            this.Colour = color;
+            this.Vertices = new Vector[_numVertices];
             CalculateVertices(_numVertices);
         }
 
@@ -39,9 +35,9 @@ namespace ShapeLibrary
         {
             for (int i = 0; i < n; i++)
             {
-                float Xn = (float)(this._center.X + this._radius * Math.Cos(i * ((2 * Math.PI) / n)));
-                float Yn = (float)(this._center.Y + this._radius * Math.Sin(i * ((2 * Math.PI) / n)));
-                _vertices[i] = new Vector(Xn, Yn);
+                float Xn = (float)(this.Center.X + this.Radius * Math.Cos(i * ((2 * Math.PI) / n)));
+                float Yn = (float)(this.Center.Y + this.Radius * Math.Sin(i * ((2 * Math.PI) / n)));
+                Vertices[i] = new Vector(Xn, Yn);
             }
         }
     }
