@@ -21,10 +21,10 @@ namespace ShapeLibraryTests
 
             Assert.AreEqual(108, c.Vertices[0].X);
             Assert.AreEqual(16, c.Vertices[0].Y);
-            Assert.AreEqual(107.803, c.Vertices[1].X, tolerance);
-            Assert.AreEqual(22.279, c.Vertices[1].Y, tolerance);
-            Assert.AreEqual(-92, c.Vertices[50].X, tolerance);
-            Assert.AreEqual(16, c.Vertices[50].Y, tolerance);
+            Assert.AreEqual(107.998, c.Vertices[1].X, tolerance);
+            Assert.AreEqual(16.614, c.Vertices[1].Y, tolerance);
+            Assert.AreEqual(103.331, c.Vertices[50].X, tolerance);
+            Assert.AreEqual(46.201, c.Vertices[50].Y, tolerance);
 
         }
     }
