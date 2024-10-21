@@ -63,7 +63,6 @@ namespace PaintDrops
         {
             _keyboard.Update();
             _mouse.Update();
-            screen.CalculateDestinationRectangle();
             
             if (_keyboard.IsKeyDown(Keys.Escape))
             {
