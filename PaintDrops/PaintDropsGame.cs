@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using ShapeLibrary;
 using DrawingLibrary;
+using PaintDropSimulation;
 
 namespace PaintDrops
 {
@@ -22,6 +23,8 @@ namespace PaintDrops
         private IShapesRenderer _shapesRenderer;
 
         private List<IShape> _shapes = new List<IShape>();
+
+        private ISurface _surface;
 
         public PaintDropsGame()
         {
@@ -42,6 +45,8 @@ namespace PaintDrops
             this._keyboard = CustomKeyboard.Instance;
             this._mouse = CustomMouse.Instance;
             _mouse.SetGraphicsDevice(GraphicsDevice);
+
+            this._surface = PaintDropSimulationFactory.CreateSurface(screen.Width, screen.Height);
         }
 
         private void onClientSizeChanged(Object sender, EventArgs e)
@@ -79,7 +84,10 @@ namespace PaintDrops
                     int green = random.Next(0, 255);
                     int blue = random.Next(0, 255);
                     Colour color = new Colour(red, green, blue);
-                    _shapes.Add(ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 64, color));
+                    ICircle c = ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 64, color);
+                    _shapes.Add(c);
+
+                    this._surface.AddPaintDrop(PaintDropSimulationFactory.CreatePaintDrop(c));
                 }
             }
 
@@ -88,12 +96,15 @@ namespace PaintDrops
                 Vector2? pos = _mouse.GetScreenPosition(screen);
                 if (pos.HasValue)
                 {
-                    Random random = new Random();
-                    int red = random.Next(0, 255);
-                    int green = random.Next(0, 255);
-                    int blue = random.Next(0, 255);
-                    Colour color = new Colour(red, green, blue);
-                    _shapes.Add(ShapesFactory.CreateRectangle(pos.Value.X, pos.Value.Y, 128, 128, color));
+                    //Random random = new Random();
+                    //int red = random.Next(0, 255);
+                    //int green = random.Next(0, 255);
+                    //int blue = random.Next(0, 255);
+                    //Colour color = new Colour(red, green, blue);
+                    //IRectangle r = ShapesFactory.CreateRectangle(pos.Value.X, pos.Value.Y, 128, 128, color);
+                    //_shapes.Add(r);
+
+                    this._surface.Drops.Clear();
                 }
             }
 
@@ -112,9 +123,10 @@ namespace PaintDrops
             GraphicsDevice.Clear(_backgroundColor);
 
             _shapesRenderer.Begin();
-            foreach (IShape shape in _shapes)
+            
+            foreach (IPaintDrop d in _surface.Drops)
             {
-                _shapesRenderer.DrawShape(shape);
+                _shapesRenderer.DrawShape(d.Circle);
             }
             _shapesRenderer.End();
 

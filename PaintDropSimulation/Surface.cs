@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShapeLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace PaintDropSimulation
 
         public void AddPaintDrop(IPaintDrop drop)
         {
+            foreach(IPaintDrop d in Drops)
+            {
+                d.Marble(drop);
+            }
             Drops.Add(drop);
         }
     }
