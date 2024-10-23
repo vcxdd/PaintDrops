@@ -48,9 +48,9 @@ namespace DrawingLibrary.Input
             {
                 return null;
             }
-            
-            float scaleX = (float)screen.Width / _graphicsDevice.Viewport.Width;
-            float scaleY = (float)screen.Height / _graphicsDevice.Viewport.Height;
+
+            float scaleX = (float)screen.Width / screenRectangle.Width;
+            float scaleY = (float)screen.Height / screenRectangle.Height;
 
             float adjustedX = (currentState.X - screen.coords.X) * scaleX;
             float adjustedY = (currentState.Y - screen.coords.Y) * scaleY;
@@ -121,9 +121,6 @@ namespace DrawingLibrary.Input
             return false;
         }
 
-        /// <summary>
-        /// Updates the states of the mouse. Needs to be called in an update loop
-        /// </summary>
         public void Update()
         {
             previousState = currentState;
