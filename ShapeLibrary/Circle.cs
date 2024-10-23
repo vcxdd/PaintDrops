@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 [assembly: InternalsVisibleTo("ShapeLibraryTests")]
+[assembly: InternalsVisibleTo("PaintDropTests")]
 namespace ShapeLibrary
 {
     internal class Circle : ICircle

@@ -25,4 +25,5 @@ devenv PaintDrops.sln
 dotnet test
 ```
 
-View ./ShapeLibraryTests/ for detailed test cases
+View ./ShapeLibraryTests/ for detailed test cases for Shapes
+View ./PaintDropTests/ for detailed test cases for Simulation
