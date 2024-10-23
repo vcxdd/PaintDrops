@@ -96,14 +96,6 @@ namespace PaintDrops
                 Vector2? pos = _mouse.GetScreenPosition(screen);
                 if (pos.HasValue)
                 {
-                    //Random random = new Random();
-                    //int red = random.Next(0, 255);
-                    //int green = random.Next(0, 255);
-                    //int blue = random.Next(0, 255);
-                    //Colour color = new Colour(red, green, blue);
-                    //IRectangle r = ShapesFactory.CreateRectangle(pos.Value.X, pos.Value.Y, 128, 128, color);
-                    //_shapes.Add(r);
-
                     this._surface.Drops.Clear();
                 }
             }

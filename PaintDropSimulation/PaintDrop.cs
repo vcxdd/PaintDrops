@@ -10,11 +10,15 @@ internal class PaintDrop : IPaintDrop
 
     public PaintDrop(ICircle circle)
     {
+        if (circle == null) throw new ArgumentException("circle must not be null");
+
         Circle = circle;
     }
 
     public void Marble(IPaintDrop other)
     {
+        if (other == null) throw new ArgumentException("other must not be null");
+
         for (int i = 0; i < Circle.Vertices.Length; i++)
         {
             Vector P = Circle.Vertices[i];

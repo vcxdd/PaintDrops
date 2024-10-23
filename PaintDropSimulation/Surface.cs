@@ -17,6 +17,7 @@ namespace PaintDropSimulation
 
         public Surface(int width, int height)
         {
+            if (width <= 0 || height <= 0) throw new ArgumentException("width and height must be positive");
             Width = width;
             Height = height;
             Drops = new List<IPaintDrop>();
@@ -24,6 +25,8 @@ namespace PaintDropSimulation
 
         public void AddPaintDrop(IPaintDrop drop)
         {
+            if (drop == null) throw new ArgumentNullException("drop must not be null");
+
             foreach(IPaintDrop d in Drops)
             {
                 d.Marble(drop);
