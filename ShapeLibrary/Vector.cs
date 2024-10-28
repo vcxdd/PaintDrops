@@ -9,23 +9,21 @@ namespace ShapeLibrary
 {
     public struct Vector
     {
-        private float _x;
-        private float _y;
-        public float X => _x;
-        public float Y => _y;
+        public float X { get; }
+        public float Y { get; }
 
         public Vector(float x, float y)
         {
             if (float.IsNaN(x) || float.IsNaN(y)) throw new ArgumentException("NaN values not allowed");
 
-            this._x = x;
-            this._y = y;
+            this.X = x;
+            this.Y = y;
         }
 
         public Vector(Vector v)
         {
-            this._x = v.X;
-            this._y = v.Y;
+            this.X = v.X;
+            this.Y = v.Y;
         }
 
         public static Double Magnitude(Vector v)
