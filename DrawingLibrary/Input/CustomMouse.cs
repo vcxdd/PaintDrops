@@ -7,9 +7,6 @@ namespace DrawingLibrary.Input
 {
     public sealed class CustomMouse : ICustomMouse
     {
-        /// <summary>
-        /// Current mouse position with respect to the window
-        /// </summary>
         public Point WindowPosition { get; }
         public MouseState previousState;
         public MouseState currentState;
@@ -40,27 +37,20 @@ namespace DrawingLibrary.Input
             }
         }
 
-        /// <summary>
-        /// Converts the current mouse position to its relative position in the provided screen.
-        /// Note, if the position is outside the area of the screen, the method returns null
-        /// </summary>
-        /// <param name="screen">The screen whose coordinate system the point must be converted to.</param>
-        /// <returns>The converted point with respect to the screens coordinate system</returns>
         public Vector2? GetScreenPosition(IScreen screen)
         {
             if (screen == null) return null;
 
             Rectangle screenRectangle = screen.CalculateDestinationRectangle();
 
-            // Check if the mouse is within the screen rectangle bounds
             if (currentState.X < screenRectangle.Left || currentState.X > screenRectangle.Right ||
                 currentState.Y < screenRectangle.Top || currentState.Y > screenRectangle.Bottom)
             {
                 return null;
             }
-            
-            float scaleX = (float)screen.Width / _graphicsDevice.Viewport.Width;
-            float scaleY = (float)screen.Height / _graphicsDevice.Viewport.Height;
+
+            float scaleX = (float)screen.Width / screenRectangle.Width;
+            float scaleY = (float)screen.Height / screenRectangle.Height;
 
             float adjustedX = (currentState.X - screen.coords.X) * scaleX;
             float adjustedY = (currentState.Y - screen.coords.Y) * scaleY;
@@ -131,9 +121,6 @@ namespace DrawingLibrary.Input
             return false;
         }
 
-        /// <summary>
-        /// Updates the states of the mouse. Needs to be called in an update loop
-        /// </summary>
         public void Update()
         {
             previousState = currentState;

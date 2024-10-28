@@ -1,5 +1,5 @@
-
 # PaintDrops
+This application is about our take on paint drops simulation on a surface. Using the mouse, you can left-click to create a paint drop (a circle) and adding more paint drops shapes other drops and make space for the new drop. Right-clicking clears the application of any paint drop. This also features a scalable screen where the change in screen size scales with everything happening in the application (clicks, drawings, game screen size).
 
 ## Setup
 

@@ -15,7 +15,9 @@ namespace ShapeLibrary
 
         public Vector Center { get; }
 
-        public Vector[] Vertices { get; }
+        private Lazy<Vector[]> _vertices;
+
+        public Vector[] Vertices => _vertices.Value;
 
         public Colour Colour { get; }
 
@@ -28,18 +30,24 @@ namespace ShapeLibrary
             this.Center = new Vector(x, y);
             this.Radius = radius;
             this.Colour = color;
-            this.Vertices = new Vector[_numVertices];
+            this._vertices = new Lazy<Vector[]>(() =>
+            {
+                return CalculateVertices(_numVertices);
+            });
             CalculateVertices(_numVertices);
         }
 
-        private void CalculateVertices(float n)
+        private Vector[] CalculateVertices(int n)
         {
+            Vector[] v = new Vector[n];
             for (int i = 0; i < n; i++)
             {
                 float Xn = (float)(this.Center.X + this.Radius * Math.Cos(i * ((2 * Math.PI) / n)));
                 float Yn = (float)(this.Center.Y + this.Radius * Math.Sin(i * ((2 * Math.PI) / n)));
-                Vertices[i] = new Vector(Xn, Yn);
+                v[i] = new Vector(Xn, Yn);
             }
+
+            return v;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace PaintDropSimulation
             {
                 d.Marble(drop);
             }
+
             Drops.Add(drop);
         }
     }

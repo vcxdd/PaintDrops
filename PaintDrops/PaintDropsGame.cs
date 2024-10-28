@@ -85,7 +85,6 @@ namespace PaintDrops
                     int blue = random.Next(0, 255);
                     Colour color = new Colour(red, green, blue);
                     ICircle c = ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 64, color);
-                    _shapes.Add(c);
 
                     this._surface.AddPaintDrop(PaintDropSimulationFactory.CreatePaintDrop(c));
                 }
