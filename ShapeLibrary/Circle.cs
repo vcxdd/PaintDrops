@@ -34,7 +34,6 @@ namespace ShapeLibrary
             {
                 return CalculateVertices(_numVertices);
             });
-            CalculateVertices(_numVertices);
         }
 
         private Vector[] CalculateVertices(int n)
