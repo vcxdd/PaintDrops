@@ -1,9 +1,4 @@
 ﻿using ShapeLibrary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaintDropSimulation
 {
@@ -23,6 +18,8 @@ namespace PaintDropSimulation
             Drops = new List<IPaintDrop>();
         }
 
+        public event EventHandler PatternGeneration;
+
         public void AddPaintDrop(IPaintDrop drop)
         {
             if (drop == null) throw new ArgumentNullException("drop must not be null");
@@ -33,6 +30,19 @@ namespace PaintDropSimulation
             }
 
             Drops.Add(drop);
+        }
+
+        public void GeneratePaintDropPattern(float radius, Colour colour)
+        {
+            if (radius <= 0) throw new ArgumentException("radius must be positive");
+
+            float x = (float)Width / (float)2;
+            float y = (float)Height / (float)2;
+            ICircle circle = ShapesFactory.CreateCircle(x, y, radius, colour);
+            IPaintDrop drop = PaintDropSimulationFactory.CreatePaintDrop(circle);
+            AddPaintDrop(drop);
+
+            PatternGeneration?.Invoke(this, EventArgs.Empty);
         }
     }
 }

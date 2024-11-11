@@ -98,9 +98,14 @@ namespace PaintDrops
                 }
             }
 
-            if (_mouse.IsMiddleButtonClicked())
+            if (_keyboard.IsKeyClicked(Keys.M))
             {
-                _shapes.Clear();
+
+            }
+
+            if (_keyboard.IsKeyClicked(Keys.E))
+            {
+                
             }
 
             base.Update(gameTime);

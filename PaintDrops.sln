@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintDropSimulation", "Pain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapeLibrary", "ShapeLibrary\ShapeLibrary.csproj", "{F7C5B77D-8086-484D-BBEB-353DF153FC99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintDropTests", "PaintDropTests\PaintDropTests.csproj", "{81080AFE-15EE-44DA-9A10-879568F31DE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintDropTests", "PaintDropTests\PaintDropTests.csproj", "{81080AFE-15EE-44DA-9A10-879568F31DE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternGenerationLib", "PatternGenerationLib\PatternGenerationLib.csproj", "{B43E9D42-74B4-4409-BA23-362D8996E546}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{81080AFE-15EE-44DA-9A10-879568F31DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81080AFE-15EE-44DA-9A10-879568F31DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81080AFE-15EE-44DA-9A10-879568F31DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43E9D42-74B4-4409-BA23-362D8996E546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43E9D42-74B4-4409-BA23-362D8996E546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43E9D42-74B4-4409-BA23-362D8996E546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43E9D42-74B4-4409-BA23-362D8996E546}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
