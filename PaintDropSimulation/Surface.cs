@@ -1,5 +1,4 @@
 ﻿using ShapeLibrary;
-using System.Runtime.ConstrainedExecution;
 
 namespace PaintDropSimulation
 {

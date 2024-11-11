@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapeLibrary", "ShapeLibrar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaintDropTests", "PaintDropTests\PaintDropTests.csproj", "{81080AFE-15EE-44DA-9A10-879568F31DE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternGenerationLib", "PatternGenerationLib\PatternGenerationLib.csproj", "{B43E9D42-74B4-4409-BA23-362D8996E546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatternGenerationLib", "PatternGenerationLib\PatternGenerationLib.csproj", "{B43E9D42-74B4-4409-BA23-362D8996E546}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatternGenerationLibTests", "PatternGenerationLibTests\PatternGenerationLibTests.csproj", "{6EBB0663-8C38-4DD8-AC8F-4149F7B92C07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{B43E9D42-74B4-4409-BA23-362D8996E546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B43E9D42-74B4-4409-BA23-362D8996E546}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B43E9D42-74B4-4409-BA23-362D8996E546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBB0663-8C38-4DD8-AC8F-4149F7B92C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBB0663-8C38-4DD8-AC8F-4149F7B92C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBB0663-8C38-4DD8-AC8F-4149F7B92C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBB0663-8C38-4DD8-AC8F-4149F7B92C07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
