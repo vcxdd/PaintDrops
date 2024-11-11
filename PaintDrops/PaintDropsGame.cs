@@ -44,7 +44,6 @@ namespace PaintDrops
 
             this._keyboard = CustomKeyboard.Instance;
             this._mouse = CustomMouse.Instance;
-            _mouse.SetGraphicsDevice(GraphicsDevice);
 
             this._surface = PaintDropSimulationFactory.CreateSurface(screen.Width, screen.Height);
         }
