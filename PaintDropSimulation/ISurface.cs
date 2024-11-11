@@ -1,12 +1,8 @@
 ﻿using ShapeLibrary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaintDropSimulation
 {
+    public delegate Vector? CalculatePatternPoint(ISurface surface);
     public interface ISurface
     {
         /// <summary>
@@ -23,10 +19,14 @@ namespace PaintDropSimulation
         /// </summary>
         List<IPaintDrop> Drops { get; }
 
+        event CalculatePatternPoint PatternGeneration;
+
         /// <summary>
         /// Adds a new paint drop to the surface and performs the marbling of all the paint drops
         /// </summary>
         /// <param name="drop">The new drop to be added to the surface</param>
         void AddPaintDrop(IPaintDrop drop);
+
+        void GeneratePaintDropPattern(float radius, Colour colour);
     }
 }
