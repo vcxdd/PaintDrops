@@ -29,6 +29,11 @@ namespace PaintDrops
 
         private IPatternGenerator _patternGenerator = new Phyllotaxis();
         private bool _generating = false;
+        private int _currentCount;
+        private int _maxCount = 125;
+        private float _timeElapsed = 0f;
+        private float _dropInterval = 0.1f;
+        private bool _delayEnabled = false;
 
         public PaintDropsGame()
         {
@@ -97,20 +102,38 @@ namespace PaintDrops
 
             if (_mouse.IsRightButtonClicked())
             {
-                this._surface.Drops.Clear();
+                _surface.Drops.Clear();
+                _currentCount = 0;
+                _generating = false;
+
+            }
+
+            if (_keyboard.IsKeyClicked(Keys.D))
+            {
+                _delayEnabled = !_delayEnabled;
             }
 
             if (_keyboard.IsKeyClicked(Keys.M))
             {
                 _generating = true;
+            }
 
-                Random random = new Random();
-                int red = random.Next(255);
-                int green = random.Next(255);
-                int blue = random.Next(255);
-                Colour color = new Colour(red, green, blue);
+            if (_generating && _currentCount < _maxCount)
+            {
+                if (!_delayEnabled)
+                {
+                    _timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                _surface.GeneratePaintDropPattern(16, color);
+                    if (_timeElapsed >= _dropInterval)
+                    {
+                        _timeElapsed = 0f;
+
+                        GeneratePattern();
+                    }
+                } else
+                {
+                    GeneratePattern();
+                }
             }
 
             if (_keyboard.IsKeyClicked(Keys.E))
@@ -119,6 +142,18 @@ namespace PaintDrops
             }
 
             base.Update(gameTime);
+        }
+
+        protected void GeneratePattern()
+        {
+            Random random = new Random();
+            int red = random.Next(255);
+            int green = random.Next(255);
+            int blue = random.Next(255);
+            Colour color = new Colour(red, green, blue);
+
+            _surface.GeneratePaintDropPattern(16, color);
+            _currentCount++;
         }
 
         protected override void Draw(GameTime gameTime)
