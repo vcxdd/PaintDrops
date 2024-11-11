@@ -20,11 +20,6 @@ namespace DrawingLibrary.Input
             WindowPosition = new Point(currentState.X, currentState.Y);
         }
 
-        public void SetGraphicsDevice(GraphicsDevice graphicsDevice)
-        {
-            _graphicsDevice = graphicsDevice;
-        }
-
         public static CustomMouse Instance
         {
             get
