@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using ShapeLibrary;
 using DrawingLibrary;
 using PaintDropSimulation;
+using PatternGenerationLib;
 
 namespace PaintDrops
 {
@@ -25,6 +26,9 @@ namespace PaintDrops
         private List<IShape> _shapes = new List<IShape>();
 
         private ISurface _surface;
+
+        private IPatternGenerator _patternGenerator = new Phyllotaxis();
+        private bool _generating = false;
 
         public PaintDropsGame()
         {
@@ -55,6 +59,8 @@ namespace PaintDrops
 
         protected override void Initialize()
         {
+            _surface.PatternGeneration += (v) => _patternGenerator.CalculatePatternPoint(_surface);
+
             base.Initialize();
         }
 
@@ -79,11 +85,11 @@ namespace PaintDrops
                 if (pos.HasValue)
                 {
                     Random random = new Random();
-                    int red = random.Next(0, 255);
-                    int green = random.Next(0, 255);
-                    int blue = random.Next(0, 255);
+                    int red = random.Next(255);
+                    int green = random.Next(255);
+                    int blue = random.Next(255);
                     Colour color = new Colour(red, green, blue);
-                    ICircle c = ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 64, color);
+                    ICircle c = ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 16, color);
 
                     this._surface.AddPaintDrop(PaintDropSimulationFactory.CreatePaintDrop(c));
                 }
@@ -91,21 +97,25 @@ namespace PaintDrops
 
             if (_mouse.IsRightButtonClicked())
             {
-                Vector2? pos = _mouse.GetScreenPosition(screen);
-                if (pos.HasValue)
-                {
-                    this._surface.Drops.Clear();
-                }
+                this._surface.Drops.Clear();
             }
 
             if (_keyboard.IsKeyClicked(Keys.M))
             {
+                _generating = true;
 
+                Random random = new Random();
+                int red = random.Next(255);
+                int green = random.Next(255);
+                int blue = random.Next(255);
+                Colour color = new Colour(red, green, blue);
+
+                _surface.GeneratePaintDropPattern(16, color);
             }
 
             if (_keyboard.IsKeyClicked(Keys.E))
             {
-                
+                _generating = false;
             }
 
             base.Update(gameTime);

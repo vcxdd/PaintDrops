@@ -19,7 +19,7 @@ namespace PaintDropSimulation
         /// </summary>
         List<IPaintDrop> Drops { get; }
 
-        event EventHandler PatternGeneration;
+        event CalculatePatternPoint PatternGeneration;
 
         /// <summary>
         /// Adds a new paint drop to the surface and performs the marbling of all the paint drops
