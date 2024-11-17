@@ -16,5 +16,7 @@ namespace PatternGenerationLib
         /// <param name="surface">Surface where the drop is being added</param>
         /// <returns>The location of the drop</returns>
         Vector? CalculatePatternPoint(ISurface surface);
+
+        void Reset();
     }
 }

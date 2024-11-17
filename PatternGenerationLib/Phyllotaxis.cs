@@ -1,29 +1,29 @@
 ﻿using PaintDropSimulation;
 using ShapeLibrary;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("PatternGenerationLibTests")]
 namespace PatternGenerationLib
 {
-    public class Phyllotaxis : IPatternGenerator
+    internal class Phyllotaxis : IPatternGenerator
     {
-        private const double _goldenAngle = (55 * Math.PI) / 72;
-        private const float _scale = 15;
-
-        public Phyllotaxis()
-        {
-
-        }
+        private const double _goldenAngle = (55 * Math.PI) / (double) 72;
+        private const float _scale = 20;
+        private float _counter = 0;
 
         public Vector? CalculatePatternPoint(ISurface surface)
         {
             if (surface == null) throw new ArgumentNullException("surface must not be null");
 
-            Vector center = new Vector((float)surface.Width/(float)2, (float)surface.Height/(float)2);
-            float i = surface.Drops.Count();
+            Vector center = new Vector(surface.Width / 2f, surface.Height / 2f);
+            _counter++;
 
-            double x = center.X + _scale * Math.Sqrt(i) * Math.Cos(_goldenAngle * i);
-            double y = center.Y + _scale * Math.Sqrt(i) * Math.Sin(_goldenAngle * i);
+            double x = center.X + _scale * Math.Sqrt(_counter) * Math.Cos(_goldenAngle * _counter);
+            double y = center.Y + _scale * Math.Sqrt(_counter) * Math.Sin(_goldenAngle * _counter);
 
             return new Vector((float)x, (float)y);
         }
+
+        public void Reset() => _counter = 0;
     }
 }

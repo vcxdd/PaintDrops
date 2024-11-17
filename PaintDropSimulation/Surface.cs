@@ -35,27 +35,15 @@ namespace PaintDropSimulation
         public void GeneratePaintDropPattern(float radius, Colour colour)
         {
             if (radius <= 0) throw new ArgumentException("radius must be positive");
+            if (PatternGeneration == null) throw new ArgumentNullException("PatternGeneration must not be null");
 
-            int i = 0;
-            while (i < 100)
+            Vector? v = PatternGeneration?.Invoke(this);
+
+            if (v.HasValue)
             {
-                Vector? v = PatternGeneration?.Invoke(this);
-                Random random = new Random();
-                int red = random.Next(255);
-                int green = random.Next(255);
-                int blue = random.Next(255);
-
-                colour = new Colour(red, green, blue);
-
-                if (v.HasValue)
-                {
-                    float x = (float)Width / (float)2;
-                    float y = (float)Height / (float)2;
-                    ICircle circle = ShapesFactory.CreateCircle(v.Value.X, v.Value.Y, radius, colour);
-                    IPaintDrop drop = PaintDropSimulationFactory.CreatePaintDrop(circle);
-                    AddPaintDrop(drop);
-                }
-                i++;
+                ICircle circle = ShapesFactory.CreateCircle(v.Value.X, v.Value.Y, radius, colour);
+                IPaintDrop drop = PaintDropSimulationFactory.CreatePaintDrop(circle);
+                AddPaintDrop(drop);
             }
         }
     }
