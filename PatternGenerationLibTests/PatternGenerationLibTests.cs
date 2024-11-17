@@ -32,5 +32,14 @@ namespace PaintDropTests
             Assert.AreEqual(661.09, v3.Value.X, 0.1);
             Assert.AreEqual(387.48, v3.Value.Y, 0.1);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "surface must not be null")]
+        public void NullTest()
+        {
+            Phyllotaxis p = new Phyllotaxis();
+
+            Vector? v = p.CalculatePatternPoint(null);
+        }
     }
 }
