@@ -35,6 +35,7 @@ namespace PaintDropSimulation
         public void GeneratePaintDropPattern(float radius, Colour colour)
         {
             if (radius <= 0) throw new ArgumentException("radius must be positive");
+            if (PatternGeneration == null) throw new ArgumentNullException("PatternGeneration must not be null");
 
             Vector? v = PatternGeneration?.Invoke(this);
 
