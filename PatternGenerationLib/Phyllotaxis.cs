@@ -8,11 +8,6 @@ namespace PatternGenerationLib
         private const double _goldenAngle = (55 * Math.PI) / 72;
         private const float _scale = 20;
 
-        public Phyllotaxis()
-        {
-
-        }
-
         public Vector? CalculatePatternPoint(ISurface surface)
         {
             if (surface == null) throw new ArgumentNullException("surface must not be null");
