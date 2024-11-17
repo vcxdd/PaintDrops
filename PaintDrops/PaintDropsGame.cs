@@ -64,7 +64,7 @@ namespace PaintDrops
 
         protected override void Initialize()
         {
-            _surface.PatternGeneration += (v) => _patternGenerator.CalculatePatternPoint(_surface);
+            _surface.PatternGeneration += _patternGenerator.CalculatePatternPoint;
 
             base.Initialize();
         }
