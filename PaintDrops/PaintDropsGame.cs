@@ -27,7 +27,7 @@ namespace PaintDrops
 
         private ISurface _surface;
 
-        private IPatternGenerator _patternGenerator = new Phyllotaxis();
+        private IPatternGenerator _patternGenerator = PatternFactory.CreatePhyllotaxis();
         private bool _generating = false;
         private int _currentCount;
         private int _maxCount = 125;
@@ -105,6 +105,7 @@ namespace PaintDrops
                 _surface.Drops.Clear();
                 _currentCount = 0;
                 _generating = false;
+                _patternGenerator.Reset();
 
             }
 
