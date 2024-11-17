@@ -1,7 +1,8 @@
 ﻿using PaintDropSimulation;
 using ShapeLibrary;
-using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("PatternGenerationLibTests")]
 namespace PatternGenerationLib
 {
     internal class Phyllotaxis : IPatternGenerator
