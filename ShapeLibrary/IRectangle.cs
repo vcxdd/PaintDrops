@@ -24,5 +24,7 @@ namespace ShapeLibrary
         /// The height of the rectangle
         /// </summary>
         public float Height { get; }
+
+        public bool Intersect(IRectangle rectangle);
     }
 }
