@@ -36,6 +36,7 @@ namespace PaintDrops
         private bool _delayEnabled = false;
 
         private float _radius = 16;
+        private SpriteFont _font;
 
         public PaintDropsGame()
         {
@@ -74,6 +75,7 @@ namespace PaintDrops
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _font = Content.Load<SpriteFont>("Radius");
         }
 
         protected override void Update(GameTime gameTime)
@@ -191,6 +193,10 @@ namespace PaintDrops
 
             screen.UnSet();
             screen.Present(this._spritesRenderer);
+
+            _spriteBatch.Begin();
+            _spriteBatch.DrawString(_font, "Radius: " + _radius, new Vector2(0, 0), Color.Black);
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
