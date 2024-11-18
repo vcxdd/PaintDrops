@@ -44,6 +44,8 @@ namespace ShapeLibrary
 
         public bool Intersect(IRectangle rectangle)
         {
+            if (rectangle == null) throw new ArgumentNullException("rectangle must not be null.");
+
             if (X + Width < rectangle.X || X > rectangle.X + rectangle.Width) return false;
             if (Y + Height < rectangle.Y || Y > rectangle.Y + rectangle.Height) return false;
 
