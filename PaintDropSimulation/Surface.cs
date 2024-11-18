@@ -33,6 +33,17 @@ namespace PaintDropSimulation
             }
 
             Drops.Add(drop);
+
+            List<IPaintDrop> toRemove = new List<IPaintDrop>();
+            foreach (IPaintDrop d in Drops)
+            {
+                if (!d.BoundingBox.Intersect(Border)) toRemove.Add(d);
+            }
+
+            foreach (IPaintDrop d in toRemove)
+            {
+                Drops.Remove(d);
+            }
         }
 
         public void GeneratePaintDropPattern(float radius, Colour colour)

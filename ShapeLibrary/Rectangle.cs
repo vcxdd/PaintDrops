@@ -10,13 +10,13 @@ namespace ShapeLibrary
 {
     internal class Rectangle : IRectangle
     {
-        public float X { get;  }
+        public float X { get; set; }
 
-        public float Y { get; }
+        public float Y { get; set; }
 
-        public float Width { get; }
+        public float Width { get; set; }
 
-        public float Height { get; }
+        public float Height { get; set; }
 
         public Vector[] Vertices { get; }
 
@@ -24,7 +24,7 @@ namespace ShapeLibrary
 
         public Rectangle(float x, float y, float width, float height, Colour color)
         {
-            if (x <= 0 || y <= 0 || width <= 0 || height <= 0) throw new ArgumentException("Values cannot be 0 or less.");
+            if (width <= 0 || height <= 0) throw new ArgumentException("Values cannot be 0 or less.");
             this.X = x;
             this.Y = y;
             this.Width = width;
@@ -44,8 +44,8 @@ namespace ShapeLibrary
 
         public bool Intersect(IRectangle rectangle)
         {
-            if (X + Width < rectangle.X || rectangle.X + rectangle.Width < X) return false;
-            if (Y + Height < rectangle.Y || rectangle.Y + rectangle.Height < Y) return false;
+            if (X + Width < rectangle.X || X > rectangle.X + rectangle.Width) return false;
+            if (Y + Height < rectangle.Y || Y > rectangle.Y + rectangle.Height) return false;
 
             return true;
         }
