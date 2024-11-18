@@ -4,7 +4,8 @@ default:
 build-debug:
   stage: build
   script:
-  - dotnet build -c Debug
+    - apt-get install freetype6 
+    - dotnet build -c Debug
 
 build-release:
   stage: build
@@ -13,8 +14,9 @@ build-release:
       - Game.tar
       
   script:
-  - dotnet publish -c Release -r win-x64 --no-self-contained true -o ./PaintDropsArtifact
-  - tar -cvf Game.tar ./PaintDropsArtifact/*
+    - apt-get install freetype6
+    - dotnet publish -c Release -r win-x64 --no-self-contained true -o ./PaintDropsArtifact
+    - tar -cvf Game.tar ./PaintDropsArtifact/*
 
 Test:
   stage: test
