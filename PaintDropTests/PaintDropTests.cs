@@ -28,5 +28,18 @@ namespace PaintDropTests
             Assert.AreEqual(144.444, d1.Circle.Vertices[50].X, tolerance);
             Assert.AreEqual(60.257, d1.Circle.Vertices[50].Y, tolerance);
         }
+
+        [TestMethod]
+        public void BoundingBoxTest()
+        {
+            Circle c1 = new Circle(8, 16, 100, new Colour(0, 0, 255));
+            IPaintDrop d1 = PaintDropSimulationFactory.CreatePaintDrop(c1);
+            float tolerance = 0.001f;
+
+            Assert.AreEqual(-92, d1.BoundingBox.X);
+            Assert.AreEqual(-84, d1.BoundingBox.Y);
+            Assert.AreEqual(200, d1.BoundingBox.Width);
+            Assert.AreEqual(200, d1.BoundingBox.Height);
+        }
     }
 }
