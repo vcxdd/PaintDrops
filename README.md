@@ -1,5 +1,17 @@
 # PaintDrops
-This application is about our take on paint drops simulation on a surface. Using the mouse, you can left-click to create a paint drop (a circle) and adding more paint drops shapes other drops and make space for the new drop. Right-clicking clears the application of any paint drop. This also features a scalable screen where the change in screen size scales with everything happening in the application (clicks, drawings, game screen size).
+This application is about our take on paint drops simulation on a surface. 
+
+## Core Features
+- Using the mouse, you can left-click to create a paint drop (a circle)
+- Right-clicking clears the application of any paint drop.
+- Pressing M on the keyboard starts a phyllotaxis pattern generation
+- Pressing E on the keyboard stops the phyllotaxis generation (allows to continue from where it stops)
+- Pressing D adds a delay on the pattern generation
+- Pressin J increases the radius of the drops (Max: 64) (Default: 16)
+- Pressing K decreases the radius of the drops (Min: 4) (Default: 16)
+- Paint drops outside the border of the screen gets deleted
+- Adding more paint drops shapes other drops and make space for the new drop. 
+- This also features a scalable screen where the change in screen size scales with everything happening in the application (clicks, drawings, game screen size).
 
 ## Setup
 
