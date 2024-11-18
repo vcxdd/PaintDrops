@@ -41,5 +41,13 @@ namespace ShapeLibrary
             this.Vertices[2] = new Vector(X + Width, Y + Height);
             this.Vertices[3] = new Vector(X, Y + Height);
         }
+
+        public bool Intersect(IRectangle rectangle)
+        {
+            if (X + Width < rectangle.X || rectangle.X + rectangle.Width < X) return false;
+            if (Y + Height < rectangle.Y || rectangle.Y + rectangle.Height < Y) return false;
+
+            return true;
+        }
     }
 }
