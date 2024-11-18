@@ -35,6 +35,8 @@ namespace PaintDrops
         private float _dropInterval = 0.1f;
         private bool _delayEnabled = false;
 
+        private float _radius = 16;
+
         public PaintDropsGame()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -94,7 +96,7 @@ namespace PaintDrops
                     int green = random.Next(255);
                     int blue = random.Next(255);
                     Colour color = new Colour(red, green, blue);
-                    ICircle c = ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, 16, color);
+                    ICircle c = ShapesFactory.CreateCircle(pos.Value.X, pos.Value.Y, _radius, color);
 
                     this._surface.AddPaintDrop(PaintDropSimulationFactory.CreatePaintDrop(c));
                 }
@@ -140,6 +142,22 @@ namespace PaintDrops
             if (_keyboard.IsKeyClicked(Keys.E))
             {
                 _generating = false;
+            }
+
+            if (_keyboard.IsKeyClicked(Keys.J))
+            {
+                if (_radius < 64)
+                {
+                    _radius += 1;
+                }
+            }
+
+            if (_keyboard.IsKeyClicked(Keys.K))
+            {
+                if (_radius > 4)
+                {
+                    _radius -= 1;
+                }
             }
 
             base.Update(gameTime);
