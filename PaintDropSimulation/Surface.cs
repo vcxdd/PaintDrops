@@ -10,12 +10,15 @@ namespace PaintDropSimulation
 
         public List<IPaintDrop> Drops { get; }
 
+        public IRectangle Border { get; }
+
         public Surface(int width, int height)
         {
             if (width <= 0 || height <= 0) throw new ArgumentException("width and height must be positive");
             Width = width;
             Height = height;
             Drops = new List<IPaintDrop>();
+            Border = ShapesFactory.CreateRectangle(0, 0, width, height, new Colour(0, 0, 0));
         }
 
         public event CalculatePatternPoint PatternGeneration;

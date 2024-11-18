@@ -8,6 +8,8 @@ internal class PaintDrop : IPaintDrop
 {
     public ICircle Circle { get; }
 
+    public IRectangle BoundingBox { get; }
+
     public PaintDrop(ICircle circle)
     {
         if (circle == null) throw new ArgumentException("circle must not be null");
