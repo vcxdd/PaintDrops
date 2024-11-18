@@ -14,6 +14,8 @@ namespace PaintDropSimulation
         /// </summary>
         ICircle Circle { get; }
 
+        IRectangle BoundingBox { get; }
+
         /// <summary>
         /// Performs the marbling algorithm
         /// </summary>
