@@ -1,5 +1,6 @@
 ﻿using ShapeLibrary;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("PaintDropTests")]
@@ -8,11 +9,36 @@ internal class PaintDrop : IPaintDrop
 {
     public ICircle Circle { get; }
 
+    public IRectangle BoundingBox { get; }
+
     public PaintDrop(ICircle circle)
     {
         if (circle == null) throw new ArgumentException("circle must not be null");
 
         Circle = circle;
+        BoundingBox = ShapesFactory.CreateRectangle(0, 0, 1, 1, new Colour(0, 0, 0));
+        CalculateBoundingBox();
+    }
+
+    public void CalculateBoundingBox()
+    {
+        float minX = Circle.Vertices[0].X;
+        float minY = Circle.Vertices[0].Y;
+        float maxX = Circle.Vertices[0].X;
+        float maxY = Circle.Vertices[0].Y;
+
+        for (int i = 1; i < Circle.Vertices.Length; i++)
+        {
+            minX = Math.Min(minX, Circle.Vertices[i].X);
+            minY = Math.Min(minY, Circle.Vertices[i].Y);
+            maxX = Math.Max(maxX, Circle.Vertices[i].X);
+            maxY = Math.Max(maxY, Circle.Vertices[i].Y);
+        }
+
+        BoundingBox.Width = maxX - minX;
+        BoundingBox.Height = maxY - minY;
+        BoundingBox.X = minX;
+        BoundingBox.Y = minY;
     }
 
     public void Marble(IPaintDrop other)
@@ -32,6 +58,8 @@ internal class PaintDrop : IPaintDrop
             float scale = (float)(Math.Sqrt((1 + ((r * r) / MagnitudeSquared))));
 
             Circle.Vertices[i] = C + (PminusC * scale);
+
+            CalculateBoundingBox();
         }
     }
 }
