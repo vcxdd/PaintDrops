@@ -1,7 +1,6 @@
 ﻿using PaintDropSimulation;
 using ShapeLibrary;
 using System.Diagnostics;
-using System.Drawing;
 
 internal class Program
 {
@@ -23,29 +22,60 @@ internal class Program
         heights[2] = 1080;
         heights[3] = 1440;
 
+        SingleTest(widths, heights, circle);
+        AverageTest(widths, heights, circle);
+    }
+
+    private static void SingleTest(int[] widths, int[] heights, ICircle circle)
+    {
+        Console.WriteLine("===== ELAPSED TIME =====");
         int inc = 5;
-        for(int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
-            Bench(() =>
+            long elapsedTime = Bench(() =>
             {
                 ISurface surface = PaintDropSimulationFactory.CreateSurface(widths[i], heights[i]);
-                for (int i = 0; i < inc; i++)
+                for (int j = 0; j < inc; j++)
                 {
                     surface.AddPaintDrop(PaintDropSimulationFactory.CreatePaintDrop(circle));
                 }
-                Console.WriteLine($"\nSurface: {surface.Width}x{surface.Height} with {surface.Drops.Count} added drops.");
-                inc += 5;
             });
+            Console.WriteLine($"\nElapsed time for {widths[i]}x{heights[i]} with {inc} paint drops: {elapsedTime}ms");
+            inc += 5;
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
         }
     }
 
-    private static void Bench(Action task)
+    private static void AverageTest(int[] widths, int[] heights, ICircle circle)
+    {
+        Console.WriteLine("\n===== AVERAGE ELAPSED TIME =====");
+        int inc = 5;
+        for (int i = 0; i < 4; i++)
+        {
+            long elapsedTime = 0;
+            for (int j = 0; j < 5; j++)
+            {
+                elapsedTime += Bench(() =>
+                {
+                    ISurface surface = PaintDropSimulationFactory.CreateSurface(widths[i], heights[i]);
+                    for (int j = 0; j < inc; j++)
+                    {
+                        surface.AddPaintDrop(PaintDropSimulationFactory.CreatePaintDrop(circle));
+                    }
+                });
+            }
+            Console.WriteLine($"\nAverage time for {widths[i]}x{heights[i]} with {inc} paint drops: {elapsedTime / 5}ms");
+            inc += 5;
+        }
+    }
+
+    private static long Bench(Action task)
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
         task?.Invoke();
         stopwatch.Stop();
-        Console.WriteLine($"\nTime Elapsed: {stopwatch.ElapsedMilliseconds}ms");
-        Console.ReadKey();
+        return stopwatch.ElapsedMilliseconds;
     }
 }
