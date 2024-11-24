@@ -10,13 +10,13 @@ namespace ShapeLibrary
 {
     internal class Rectangle : IRectangle
     {
-        public float X { get; set; }
+        public float X { get; }
 
-        public float Y { get; set; }
+        public float Y { get; }
 
-        public float Width { get; set; }
+        public float Width { get; }
 
-        public float Height { get; set; }
+        public float Height { get; }
 
         public Vector[] Vertices { get; }
 
@@ -46,8 +46,8 @@ namespace ShapeLibrary
         {
             if (rectangle == null) throw new ArgumentNullException("rectangle must not be null.");
 
-            if (X + Width < rectangle.X || X > rectangle.X + rectangle.Width) return false;
-            if (Y + Height < rectangle.Y || Y > rectangle.Y + rectangle.Height) return false;
+            if (X + Width <= rectangle.X || X >= rectangle.X + rectangle.Width) return false;
+            if (Y + Height <= rectangle.Y || Y >= rectangle.Y + rectangle.Height) return false;
 
             return true;
         }
