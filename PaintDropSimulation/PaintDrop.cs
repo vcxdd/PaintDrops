@@ -22,10 +22,10 @@ internal class PaintDrop : IPaintDrop
 
     public void CalculateBoundingBox()
     {
-        float minX = Circle.Vertices.Min(v => v.X);
-        float minY = Circle.Vertices.Min(v => v.Y);
-        float maxX = Circle.Vertices.Max(v => v.X);
-        float maxY = Circle.Vertices.Max(v => v.Y);
+        var minX = Circle.Vertices.Min(v => v.X);
+        var minY = Circle.Vertices.Min(v => v.Y);
+        var maxX = Circle.Vertices.Max(v => v.X);
+        var maxY = Circle.Vertices.Max(v => v.Y);
 
         BoundingBox = ShapesFactory.CreateRectangle(minX, minY, maxX - minX, maxY - minY, new Colour(0, 0, 0));
     }
