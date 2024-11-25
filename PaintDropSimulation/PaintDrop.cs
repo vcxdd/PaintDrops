@@ -34,7 +34,7 @@ internal class PaintDrop : IPaintDrop
     {
         if (other == null) throw new ArgumentException("other must not be null");
 
-        for (int i = 0; i < Circle.Vertices.Length; i++)
+        Parallel.For(0, Circle.Vertices.Length, i =>
         {
             Vector P = Circle.Vertices[i];
             Vector C = other.Circle.Center;
@@ -49,6 +49,6 @@ internal class PaintDrop : IPaintDrop
             Circle.Vertices[i] = C + (PminusC * scale);
 
             CalculateBoundingBox();
-        }
+        });
     }
 }
