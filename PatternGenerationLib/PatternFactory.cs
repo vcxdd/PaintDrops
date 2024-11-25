@@ -1,12 +1,4 @@
-﻿using PaintDropSimulation;
-using ShapeLibrary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PatternGenerationLib
+﻿namespace PatternGenerationLib
 {
     public static class PatternFactory
     {
