@@ -9,6 +9,8 @@ using ShapeLibrary;
 using DrawingLibrary;
 using PaintDropSimulation;
 using PatternGenerationLib;
+using System.Linq;
+using System.Diagnostics;
 
 namespace PaintDrops
 {
@@ -27,10 +29,12 @@ namespace PaintDrops
 
         private ISurface _surface;
 
-        private IPatternGenerator _patternGenerator = PatternFactory.CreateSpiral();
+        private List<IPatternGenerator> _patterns = new List<IPatternGenerator>();
+        private IPatternGenerator _patternGenerator;
         private bool _generating = false;
         private int _currentCount;
         private int _maxCount = 125;
+        private int _patIndex = 0;
 
         private float _radius = 16;
         private SpriteFont _font;
@@ -55,6 +59,10 @@ namespace PaintDrops
             this._mouse = CustomMouse.Instance;
 
             this._surface = PaintDropSimulationFactory.CreateSurface(screen.Width, screen.Height);
+
+            _patterns.Add(PatternFactory.CreatePhyllotaxis());
+            _patterns.Add(PatternFactory.CreateSpiral());
+            _patternGenerator = _patterns[_patIndex];
         }
 
         private void onClientSizeChanged(Object sender, EventArgs e)
@@ -141,9 +149,21 @@ namespace PaintDrops
                 }
             }
 
+            if (_keyboard.IsKeyClicked(Keys.P))
+            {
+                _surface.Drops.Clear();
+                _currentCount = 0;
+                _generating = false;
+                _patternGenerator.Reset();
+
+                _surface.PatternGeneration -= _patternGenerator.CalculatePatternPoint;
+                _patIndex = (_patIndex + 1) % _patterns.Count;
+                _patternGenerator = _patterns[_patIndex];
+                _surface.PatternGeneration += _patternGenerator.CalculatePatternPoint;
+            }
+
             base.Update(gameTime);
         }
-
         protected void GeneratePattern()
         {
             Random random = new Random();
