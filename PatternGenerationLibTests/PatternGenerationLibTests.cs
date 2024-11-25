@@ -71,9 +71,9 @@ namespace PaintDropTests
         [ExpectedException(typeof(ArgumentNullException), "surface must not be null")]
         public void NullTestSpiral()
         {
-            Phyllotaxis p = new Phyllotaxis();
+            Spiral s = new Spiral();
 
-            Vector? v = p.CalculatePatternPoint(null);
+            Vector? v = s.CalculatePatternPoint(null);
         }
     }
 }
