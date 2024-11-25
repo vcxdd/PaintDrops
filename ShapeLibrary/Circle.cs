@@ -21,6 +21,13 @@ namespace ShapeLibrary
 
         public Colour Colour { get; }
 
+        /*
+         * Change to the number of vertices from 1024 (max) to 256 (from ShapesRenderer),
+         * with less vertices, the circle will look less smooth but will run faster and number of
+         * drops placed can be much higher
+         * 
+         * Performance: Overall positive with slight loss of smoothness on circles
+         */
         public const int _numVertices = 256;
 
         public Circle(float x, float y, float radius, Colour color)

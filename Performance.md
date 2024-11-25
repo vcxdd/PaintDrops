@@ -56,3 +56,22 @@ After changing the For loop in the actual marble function to use a ParallelFor l
 ### 2560x1440 - 20 drops
 > Debug: 1012 ms
 > Release: 749 ms
+
+## After number of vertices drawn in circle
+After changing the number of vertices in a circle
+
+### 640x480 - 5 dops
+> Debug: 14 ms
+> Release: 8 ms
+
+### 1280x720 - 10 drops
+> Debug: 42 ms
+> Release: 27 ms
+
+### 1920x1080 - 15 drops
+> Debug: 67 ms
+> Release: 47 ms
+
+### 2560x1440 - 20 drops
+> Debug: 108 ms
+> Release: 78 ms
