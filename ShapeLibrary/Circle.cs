@@ -21,7 +21,7 @@ namespace ShapeLibrary
 
         public Colour Colour { get; }
 
-        public const int _numVertices = 1024;
+        public const int _numVertices = 256;
 
         public Circle(float x, float y, float radius, Colour color)
         {
