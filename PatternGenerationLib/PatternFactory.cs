@@ -6,5 +6,10 @@
         {
             return new Phyllotaxis();
         }
+
+        public static IPatternGenerator CreateHeart()
+        {
+            return new Heart();
+        }
     }
 }
