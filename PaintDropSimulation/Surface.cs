@@ -28,12 +28,13 @@ namespace PaintDropSimulation
         {
             if (drop == null) throw new ArgumentNullException("drop must not be null");
 
+            /* Changed to Parallel.ForEach to loop through the drops in parallel.
+             * At first, there might not be many drops, but eventually when the drops increase,
+             * it makes more sense to loop in parallel the drops.
+             * 
+             * Impact: Slight performance increase at first, more noticeable with more drops.
+            */
             Parallel.ForEach(Drops, d => d.Marble(drop));
-
-            //foreach(IPaintDrop d in Drops)
-            //{
-            //    d.Marble(drop);
-            //}
 
             Drops.Add(drop);
 
