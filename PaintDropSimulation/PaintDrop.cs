@@ -9,7 +9,7 @@ internal class PaintDrop : IPaintDrop
 {
     public ICircle Circle { get; }
 
-    public IRectangle BoundingBox { get; }
+    public IRectangle BoundingBox { get; private set; }
 
     public PaintDrop(ICircle circle)
     {
@@ -22,23 +22,12 @@ internal class PaintDrop : IPaintDrop
 
     public void CalculateBoundingBox()
     {
-        float minX = Circle.Vertices[0].X;
-        float minY = Circle.Vertices[0].Y;
-        float maxX = Circle.Vertices[0].X;
-        float maxY = Circle.Vertices[0].Y;
+        var minX = Circle.Vertices.Min(v => v.X);
+        var minY = Circle.Vertices.Min(v => v.Y);
+        var maxX = Circle.Vertices.Max(v => v.X);
+        var maxY = Circle.Vertices.Max(v => v.Y);
 
-        for (int i = 1; i < Circle.Vertices.Length; i++)
-        {
-            minX = Math.Min(minX, Circle.Vertices[i].X);
-            minY = Math.Min(minY, Circle.Vertices[i].Y);
-            maxX = Math.Max(maxX, Circle.Vertices[i].X);
-            maxY = Math.Max(maxY, Circle.Vertices[i].Y);
-        }
-
-        BoundingBox.Width = maxX - minX;
-        BoundingBox.Height = maxY - minY;
-        BoundingBox.X = minX;
-        BoundingBox.Y = minY;
+        BoundingBox = ShapesFactory.CreateRectangle(minX, minY, maxX - minX, maxY - minY, new Colour(0, 0, 0));
     }
 
     public void Marble(IPaintDrop other)

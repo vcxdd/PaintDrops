@@ -1,4 +1,5 @@
 ﻿using ShapeLibrary;
+using System.Diagnostics;
 
 namespace PaintDropSimulation
 {
@@ -37,7 +38,10 @@ namespace PaintDropSimulation
             List<IPaintDrop> toRemove = new List<IPaintDrop>();
             foreach (IPaintDrop d in Drops)
             {
-                if (!d.BoundingBox.Intersect(Border)) toRemove.Add(d);
+                if (!d.BoundingBox.Intersect(Border))
+                {
+                    toRemove.Add(d);
+                }
             }
 
             foreach (IPaintDrop d in toRemove)
