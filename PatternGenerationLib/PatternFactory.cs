@@ -7,9 +7,9 @@
             return new Phyllotaxis();
         }
 
-        public static IPatternGenerator CreateHeart()
+        public static IPatternGenerator CreateSpiral()
         {
-            return new Heart();
+            return new Spiral();
         }
     }
 }
