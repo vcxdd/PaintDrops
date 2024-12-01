@@ -9,6 +9,8 @@ using ShapeLibrary;
 using DrawingLibrary;
 using PaintDropSimulation;
 using PatternGenerationLib;
+using System.Linq;
+using System.Diagnostics;
 
 namespace PaintDrops
 {
@@ -27,13 +29,12 @@ namespace PaintDrops
 
         private ISurface _surface;
 
-        private IPatternGenerator _patternGenerator = PatternFactory.CreatePhyllotaxis();
+        private List<IPatternGenerator> _patterns = new List<IPatternGenerator>();
+        private IPatternGenerator _patternGenerator;
         private bool _generating = false;
         private int _currentCount;
         private int _maxCount = 125;
-        private float _timeElapsed = 0f;
-        private float _dropInterval = 0.1f;
-        private bool _delayEnabled = false;
+        private int _patIndex = 0;
 
         private float _radius = 16;
         private SpriteFont _font;
@@ -58,6 +59,10 @@ namespace PaintDrops
             this._mouse = CustomMouse.Instance;
 
             this._surface = PaintDropSimulationFactory.CreateSurface(screen.Width, screen.Height);
+
+            _patterns.Add(PatternFactory.CreatePhyllotaxis());
+            _patterns.Add(PatternFactory.CreateSpiral());
+            _patternGenerator = _patterns[_patIndex];
         }
 
         private void onClientSizeChanged(Object sender, EventArgs e)
@@ -113,11 +118,6 @@ namespace PaintDrops
 
             }
 
-            if (_keyboard.IsKeyClicked(Keys.D))
-            {
-                _delayEnabled = !_delayEnabled;
-            }
-
             if (_keyboard.IsKeyClicked(Keys.M))
             {
                 _generating = true;
@@ -125,20 +125,7 @@ namespace PaintDrops
 
             if (_generating && _currentCount < _maxCount)
             {
-                if (!_delayEnabled)
-                {
-                    _timeElapsed += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                    if (_timeElapsed >= _dropInterval)
-                    {
-                        _timeElapsed = 0f;
-
-                        GeneratePattern();
-                    }
-                } else
-                {
-                    GeneratePattern();
-                }
+                GeneratePattern();
             }
 
             if (_keyboard.IsKeyClicked(Keys.E))
@@ -162,9 +149,21 @@ namespace PaintDrops
                 }
             }
 
+            if (_keyboard.IsKeyClicked(Keys.P))
+            {
+                _surface.Drops.Clear();
+                _currentCount = 0;
+                _generating = false;
+                _patternGenerator.Reset();
+
+                _surface.PatternGeneration -= _patternGenerator.CalculatePatternPoint;
+                _patIndex = (_patIndex + 1) % _patterns.Count;
+                _patternGenerator = _patterns[_patIndex];
+                _surface.PatternGeneration += _patternGenerator.CalculatePatternPoint;
+            }
+
             base.Update(gameTime);
         }
-
         protected void GeneratePattern()
         {
             Random random = new Random();
@@ -176,7 +175,6 @@ namespace PaintDrops
             _surface.GeneratePaintDropPattern(16, color);
             _currentCount++;
         }
-
         protected override void Draw(GameTime gameTime)
         {
             screen.Set();

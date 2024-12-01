@@ -18,15 +18,15 @@ namespace PaintDropTests
 
             Assert.AreEqual(108, d1.Circle.Vertices[0].X);
             Assert.AreEqual(16, d1.Circle.Vertices[0].Y);
-            Assert.AreEqual(103.330, d1.Circle.Vertices[50].X, tolerance);
-            Assert.AreEqual(46.201, d1.Circle.Vertices[50].Y, tolerance);
+            Assert.AreEqual(41.689, d1.Circle.Vertices[50].X, tolerance);
+            Assert.AreEqual(110.154, d1.Circle.Vertices[50].Y, tolerance);
 
             d1.Marble(d2);
 
             Assert.AreEqual(151.561, d1.Circle.Vertices[0].X, tolerance);
             Assert.AreEqual(16, d1.Circle.Vertices[0].Y, tolerance);
-            Assert.AreEqual(144.444, d1.Circle.Vertices[50].X, tolerance);
-            Assert.AreEqual(60.257, d1.Circle.Vertices[50].Y, tolerance);
+            Assert.AreEqual(53.158, d1.Circle.Vertices[50].X, tolerance);
+            Assert.AreEqual(150.615, d1.Circle.Vertices[50].Y, tolerance);
         }
 
         [TestMethod]

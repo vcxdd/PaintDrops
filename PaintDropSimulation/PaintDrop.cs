@@ -34,7 +34,14 @@ internal class PaintDrop : IPaintDrop
     {
         if (other == null) throw new ArgumentException("other must not be null");
 
-        for (int i = 0; i < Circle.Vertices.Length; i++)
+        /*
+         * Changed to Parallel.For to loop through the vertices in parallel and compute
+         * marble formula to each vertices in parallel. With the huge amount of vertices,
+         * I use to draw a circle, it makes to loop through the vertices in parallel.
+         * 
+         * Performance: Overall better performance
+         */
+        Parallel.For(0, Circle.Vertices.Length, i =>
         {
             Vector P = Circle.Vertices[i];
             Vector C = other.Circle.Center;
@@ -49,6 +56,6 @@ internal class PaintDrop : IPaintDrop
             Circle.Vertices[i] = C + (PminusC * scale);
 
             CalculateBoundingBox();
-        }
+        });
     }
 }

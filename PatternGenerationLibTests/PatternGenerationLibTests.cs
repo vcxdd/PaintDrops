@@ -41,5 +41,39 @@ namespace PaintDropTests
 
             Vector? v = p.CalculatePatternPoint(null);
         }
+
+        [TestMethod]
+        public void CalcTestSpiral()
+        {
+            var surfaceMock = new Mock<ISurface>();
+            surfaceMock.Setup(s => s.Width).Returns(1280);
+            surfaceMock.Setup(s => s.Height).Returns(720);
+            Spiral s = new Spiral();
+
+            Vector? v1 = s.CalculatePatternPoint(surfaceMock.Object);
+            Vector? v2 = s.CalculatePatternPoint(surfaceMock.Object);
+            Vector? v3 = s.CalculatePatternPoint(surfaceMock.Object);
+
+            Assert.IsNotNull(v1);
+            Assert.AreEqual(640, v1.Value.X, 0.1);
+            Assert.AreEqual(360, v1.Value.Y, 0.1);
+
+            Assert.IsNotNull(v2);
+            Assert.AreEqual(642.70, v2.Value.X, 0.1);
+            Assert.AreEqual(364.21, v2.Value.Y, 0.1);
+
+            Assert.IsNotNull(v3);
+            Assert.AreEqual(635.84, v3.Value.X, 0.1);
+            Assert.AreEqual(369.09, v3.Value.Y, 0.1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "surface must not be null")]
+        public void NullTestSpiral()
+        {
+            Spiral s = new Spiral();
+
+            Vector? v = s.CalculatePatternPoint(null);
+        }
     }
 }

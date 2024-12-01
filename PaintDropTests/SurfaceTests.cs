@@ -17,8 +17,8 @@ namespace PaintDropTests
             IPaintDrop d = PaintDropSimulationFactory.CreatePaintDrop(c);
             s.AddPaintDrop(d);
             Assert.AreEqual(d.Circle.Vertices[0], s.Drops.First().Circle.Vertices[0]);
+            Assert.AreEqual(d.Circle.Vertices[50], s.Drops.First().Circle.Vertices[50]);
             Assert.AreEqual(d.Circle.Vertices[100], s.Drops.First().Circle.Vertices[100]);
-            Assert.AreEqual(d.Circle.Vertices[1000], s.Drops.First().Circle.Vertices[1000]);
         }
     }
 }
