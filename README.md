@@ -12,10 +12,11 @@ This application is about our take on paint drops simulation on a surface.
 - Paint drops outside the border of the screen gets deleted
 - Adding more paint drops shapes other drops and make space for the new drop. 
 - This also features a scalable screen where the change in screen size scales with everything happening in the application (clicks, drawings, game screen size).
+- benchmark testing, run the console app PaintDropSimulationBenchmarking to test the performance of the app (Program.cs)
+- Pressing P toggles between different pattern generationss (phyllotaxis or spiral)
+- Pressing M generates a pattern depending on the selected pattern from toggle (default: phyllotaxis)
 
-- (NEW) benchmark testing, run the console app PaintDropSimulationBenchmarking to test the performance of the app (Program.cs)
-- (NEW) Pressing P toggles between different pattern generationss (phyllotaxis or spiral)
-- (NEW) Pressing M generates a pattern depending on the selected pattern from toggle (default: phyllotaxis)
+- (NEW) added heart pattern
 
 ## Setup
 
