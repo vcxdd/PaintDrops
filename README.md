@@ -6,7 +6,6 @@ This application is about our take on paint drops simulation on a surface.
 - Right-clicking clears the application of any paint drop.
 - Pressing M on the keyboard starts pattern generation
 - Pressing E on the keyboard stops the phyllotaxis generation (allows to continue from where it stops)
-- Pressing D adds a delay on the pattern generation
 - Pressin J increases the radius of the drops (Max: 64) (Default: 16)
 - Pressing K decreases the radius of the drops (Min: 4) (Default: 16)
 - Paint drops outside the border of the screen gets deleted
