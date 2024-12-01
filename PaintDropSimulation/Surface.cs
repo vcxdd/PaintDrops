@@ -34,7 +34,9 @@ namespace PaintDropSimulation
              * 
              * Impact: Slight performance increase at first, more noticeable with more drops.
             */
-            Parallel.ForEach(Drops, d => d.Marble(drop));
+            //Parallel.ForEach(Drops, d => d.Marble(drop));
+
+            foreach(IPaintDrop d in Drops) d.Marble(drop);
 
             Drops.Add(drop);
 

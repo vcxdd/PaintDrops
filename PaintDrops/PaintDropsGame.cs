@@ -33,12 +33,16 @@ namespace PaintDrops
         private IPatternGenerator _patternGenerator;
         private bool _generating = false;
         private int _currentCount;
-        private int _maxCount = 125;
+        private int _maxCount = 100;
         private int _patIndex = 0;
 
         private float _radius = 16;
         private SpriteFont _font;
+        private String _patternName = "";
 
+        private double _lastPatternSwitchTime = 0;
+        private const double PatternSwitchCooldown = 0.45;
+        
         public PaintDropsGame()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -61,7 +65,9 @@ namespace PaintDrops
             this._surface = PaintDropSimulationFactory.CreateSurface(screen.Width, screen.Height);
 
             _patterns.Add(PatternFactory.CreatePhyllotaxis());
+            _patternName = "Phyllotaxis";
             _patterns.Add(PatternFactory.CreateSpiral());
+            _patterns.Add(PatternFactory.CreateHeart());
             _patternGenerator = _patterns[_patIndex];
         }
 
@@ -151,15 +157,30 @@ namespace PaintDrops
 
             if (_keyboard.IsKeyClicked(Keys.P))
             {
-                _surface.Drops.Clear();
-                _currentCount = 0;
-                _generating = false;
-                _patternGenerator.Reset();
+                double currentTime = gameTime.TotalGameTime.TotalSeconds;
+                if (currentTime - _lastPatternSwitchTime > PatternSwitchCooldown)
+                {
+                    _lastPatternSwitchTime = currentTime;
 
-                _surface.PatternGeneration -= _patternGenerator.CalculatePatternPoint;
-                _patIndex = (_patIndex + 1) % _patterns.Count;
-                _patternGenerator = _patterns[_patIndex];
-                _surface.PatternGeneration += _patternGenerator.CalculatePatternPoint;
+                    _surface.Drops.Clear();
+                    _currentCount = 0;
+                    _generating = false;
+                    _patternGenerator.Reset();
+
+                    _surface.PatternGeneration -= _patternGenerator.CalculatePatternPoint;
+                    _patIndex = (_patIndex + 1) % _patterns.Count;
+                    _patternGenerator = _patterns[_patIndex];
+
+                    _patternName = _patterns[_patIndex].GetType().Name switch
+                    {
+                        "Phyllotaxis" => "Phyllotaxis",
+                        "Spiral" => "Spiral",
+                        "Heart" => "Heart",
+                        _ => _patternName
+                    };
+
+                    _surface.PatternGeneration += _patternGenerator.CalculatePatternPoint;
+                }
             }
 
             base.Update(gameTime);
@@ -193,7 +214,8 @@ namespace PaintDrops
             screen.Present(this._spritesRenderer);
 
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_font, "Radius: " + _radius, new Vector2(0, 0), Color.Black);
+            _spriteBatch.DrawString(_font, "Radius: " + _radius, new Vector2(1, 0), Color.Black);
+            _spriteBatch.DrawString(_font, "Pattern: " + _patternName, new Vector2(1, 20), Color.Black);
             _spriteBatch.End();
 
             base.Draw(gameTime);

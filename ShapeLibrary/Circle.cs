@@ -28,7 +28,7 @@ namespace ShapeLibrary
          * 
          * Performance: Overall positive with slight loss of smoothness on circles
          */
-        public const int _numVertices = 256;
+        public const int _numVertices = 100;
 
         public Circle(float x, float y, float radius, Colour color)
         {

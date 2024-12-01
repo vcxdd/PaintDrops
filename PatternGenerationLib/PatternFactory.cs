@@ -11,5 +11,10 @@
         {
             return new Spiral();
         }
+
+        public static IPatternGenerator CreateHeart()
+        {
+            return new Heart();
+        }
     }
 }
