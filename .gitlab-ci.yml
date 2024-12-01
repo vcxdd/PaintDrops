@@ -17,8 +17,9 @@ build-release:
   script:
     - apt-get -y update
     - apt-get -y install libfreetype6
-    - dotnet publish -c Release -r win-x64 --no-self-contained true -o ./PaintDropsArtifact
-    - tar -cvf Game.tar ./PaintDropsArtifact/*
+    - dotnet publish -c Release -r win-x64 --self-contained false -o ./PaintDropsArtifact
+    - cd ./PaintDropsArtifact
+    - tar -cvf ../Game.tar *
 
 Test:
   stage: test
