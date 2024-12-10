@@ -462,6 +462,7 @@ $RECYCLE.BIN/
 ##
 
 PaintDropsArtifact/
+PaintDropsGame/
 
 runOpenCover.bat
 coveragereport/
