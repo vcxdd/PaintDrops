@@ -28,10 +28,7 @@ devenv PaintDrops.sln
 4. Run the program
 
 ## Run locally
-1. Download artifact (artifact.zip)
-2. Unzip Game.tar
-3. Go to inside PaintDropsArtifact
-4. Find PaintDrops.exe and run it
+1. Download latest (releases)[https://github.com/vcxdd/PaintDrops/releases]
 
 ## Testing
 
