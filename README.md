@@ -28,7 +28,7 @@ devenv PaintDrops.sln
 4. Run the program
 
 ## Run locally
-1. Download latest (releases)[https://github.com/vcxdd/PaintDrops/releases]
+1. Download latest [releases](https://github.com/vcxdd/PaintDrops/releases)
 
 ## Testing
 
